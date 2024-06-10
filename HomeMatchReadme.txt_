@@ -1,0 +1,34 @@
+Code name: HomMatch
+
+The code is created to satisfy the project requirements as outlined below:
+
+Synthetic Data Generation
+    Criteria 1 - Generating Real Estate Listings with an LLM
+        openai gpt-3.5-turbo is used to generate a list containing 15 properties.
+        the list is then parsed for easy embedding.
+        
+Semantic Search
+    Criteria 2- Creating a Vector Database and Storing Listings
+        openai text-embedding-ada-002 is used for embedding
+        the parsed list is then combined with embeddings ready for next step.
+        
+    Criteria 3 - Semantic Search of Listings Based on Buyer Preferences
+        1st of all, a lancedb table is created 
+        the table is then converted to pandas dataframe 
+        a simple user interface is created for collecting user preference
+        user preference is then parsed and embedded
+        lancedb table.search funtion with metric "cosine" is used to conduct sementic search
+        top 2 properties are returned
+        
+Augmented Response Generation    
+    Criteria 4 - Logic for Searching and Augmenting Listing Descriptions.
+        This has been demonstrated in previous steps.
+    
+    Criteria 5 - Use of LLM for Generating Personalized Descriptions
+        1st of all, sementic search results are converted to natual language sentences.
+        openai gpt-3.5-turbo-instruct is used to rewrite the sentences to a more personalised and tailored property descriptions.
+        3 additional messages are also included for further personalisation.
+        
+    
+        
+    
